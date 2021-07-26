@@ -10,7 +10,7 @@ gen_monster <- function(dataset = scooby_data) {
   culprit_name <- sample(dataset$culprit_name, size = sample_size)
   motive <- tolower(sample(dataset$motive, size = sample_size))
   arrested <- ifelse(test = sample(dataset$arrested, size = sample_size),
-                     yes = "arrested! You would have gotten away with if it weren't for those meddling kids!",
+                     yes = "arrested! You would have gotten away with it if it weren't for those meddling kids!",
                      no = "not arrested! You got away from those meddling kids!")
 
   return_string <-

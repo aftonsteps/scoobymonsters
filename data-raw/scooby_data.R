@@ -44,6 +44,22 @@ scooby_data <-
                   monster_subtype != "NULL" &
                   culprit_name != "NULL" &
                   motive != "NULL" &
-                  arrested != "NULL")
+                  arrested != "NULL") %>%
+  dplyr::filter(! monster_name %in% c("Indian Witch Doctor",
+                                      "Ghost of Injun Joe",
+                                      "Medicine Man Ghost",
+                                      "Totem Spirit",
+                                      "Wiki-Tiki",
+                                      "Tiny Tikis",
+                                      "Spirit of the Zatari Warrior",
+                                      "Crazy Carl") &
+                  ! monster_subtype %in% c("Split-Personality",
+                                           "Shaman")) %>%
+  dplyr::mutate(motive = ifelse(test = motive == "Counterfeit",
+                                yes = "Counterfeiting",
+                                no = motive)) %>%
+  dplyr::mutate(motive = ifelse(test = motive == "Natural Resource",
+                                yes = "Natural Resources",
+                                no = motive))
 
 usethis::use_data(scooby_data, overwrite = TRUE)

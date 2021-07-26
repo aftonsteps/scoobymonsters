@@ -18,7 +18,7 @@ app_ui <- function(request) {
                                    label = "New Monster"),
                       width = 6)),
       fluidRow(column(HTML(credit),
-                      width = 12))
+                      width = 6))
     )
   )
 }
